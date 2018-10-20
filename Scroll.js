@@ -1,4 +1,4 @@
-var Class = (function () {
+var Class = /** @class */ (function () {
     function Class(wrapper, scroller, container, max) {
         this.wrapper = wrapper;
         this.scroller = scroller;
@@ -46,4 +46,3 @@ var Class = (function () {
     return Class;
 }());
 new Class(document.getElementById('wrapper'), document.getElementById('scroller'), document.getElementById('container'), 100);
-//# sourceMappingURL=Scroll.js.map
