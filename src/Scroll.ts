@@ -6,12 +6,10 @@ class Class {
   max: number
   h: number
   callback: any
-  isPc:boolean
   constructor (wrapper: HTMLElement, scroller: HTMLElement, container: HTMLElement, max:number) {
     this.wrapper = wrapper
     this.scroller = scroller
     this.container = container
-    this.isPc = 'ontouchstart' in window
     this.h = parseInt(window.getComputedStyle(wrapper).height)
     this.max = max
     this.bind()
