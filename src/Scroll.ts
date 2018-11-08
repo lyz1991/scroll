@@ -6,12 +6,14 @@ class Class {
   max: number
   h: number
   callback: any
-  constructor (wrapper: HTMLElement, scroller: HTMLElement, container: HTMLElement, max:number) {
+  constructor (wrapper: HTMLElement, scroller: HTMLElement, container: HTMLElement, max:number, fn: any = function () {
+  }) {
     this.wrapper = wrapper
     this.scroller = scroller
     this.container = container
     this.h = parseInt(window.getComputedStyle(wrapper).height)
     this.max = max
+    this.callback = fn
     this.bind()
   }
   bind():void {
@@ -43,13 +45,20 @@ class Class {
   up(distance: number) {
     this.scroller.style.transform = `translateY(${distance}px)`
   }
-  reset(e) {
+  async reset(e: any) {
     this.startY = 0
+    await this.callback()
+    console.log('back')
     this.scroller.style.transform = `translateY(0px)`
-    this.callback && this.callback()
   }
 
 }
 new Class(document.getElementById('wrapper'),
     document.getElementById('scroller'),
-    document.getElementById('container'), 100)
+    document.getElementById('container'), 100,  function () {
+      return new Promise(function (resolve, reject) {
+         setTimeout(function () {
+           resolve()
+         }, 3000)
+      })
+  })

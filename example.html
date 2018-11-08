@@ -20,12 +20,12 @@
     width: 100%;
     height: 100%;
     max-height: 100%;
-    background-color: yellow;
     transition: all ease-out 300ms;
   }
   .container {
     width: 100%;
     overflow: scroll;
+    overflow-scrolling: touch;
     max-height: inherit;
   }
   .item {
@@ -36,15 +36,13 @@
     border-bottom: none;
   }
   .up {
-    position: absolute;
-    top: -24px;
+    margin-top: -24px;
     width: 100%;
     text-align: center;
   }
   .down {
-    position: absolute;
     width: 100%;
-    bottom: -24px;
+    margin-bottom: -24px;
     text-align: center;
   }
 </style>
@@ -72,5 +70,5 @@ function generateHtml(arr) {
 }
 generateHtml(new Array(20))
 </script>
-<script src="build/Scroll.js"></script>
+<script src="src/Scroll.js"></script>
 </html>
